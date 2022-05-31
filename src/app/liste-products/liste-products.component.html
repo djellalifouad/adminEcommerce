@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Description</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Catégorie</th>
+               <th scope="col">Caréteristiques</th>
+  <th scope="col">Image</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of list">
+            <td>{{product.nom}}</td>
+            <td>{{product.desc}}</td>
+            <td>{{product.price}}$</td>
+            <td>{{product.qty}}</td>
+          <td>{{product.categorie.title}}</td>
+            <td> processor : {{product.processor}},
+<br>
+Ram: {{product.ram}},
+<br>
+Mémoire: {{product.memory}},
+<br>
+Screen: {{product.screenType}}
+            </td>
+            <td>
+              <a href="{{product.image}}">Allez vers le lien</a>
+            </td>
+            <td>
+              <button type="button" class="btn btn-success" (click)="navigatetoUpdateProduct(product._id)"><i class="fas fa-edit"></i></button>
+            <button type="button" (click)="removeProduct(product._id)" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

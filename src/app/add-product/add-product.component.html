@@ -1,0 +1,152 @@
+      <form  style="padding-left: 60px; padding-top:70px" class="needs-validation" [formGroup]="addProduct">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">Nom produit</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="nom"
+              [ngClass]="{ 'is-invalid': f['nom'].errors }"
+            />
+            <div *ngIf="f['nom'].errors && f['nom'].touched">
+              <small class="text-muted">Please enter a valid name</small>
+              <div
+                *ngIf="f['nom'].errors['required']"
+                class="invalid-feedback"
+                style="color: red"
+              >
+                ce champ est required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Description du produit</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            formControlName="desc"
+            [ngClass]="{ 'is-invalid': f['desc'].errors }"
+          />
+          <div *ngIf="f['desc'].errors && f['desc'].touched">
+            <small class="text-muted">Please enter a valid lastname</small>
+          </div>
+        </div>
+           <div class="col-md-6 mb-3">
+            <label for="firstName">Prix</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="price"
+              [ngClass]="{ 'is-invalid': f['price'].errors }"
+            />
+            <div *ngIf="f['price'].errors && f['price'].touched">
+              <small class="text-muted">Please enter a valid price</small>
+              <div
+                *ngIf="f['price'].errors['required']"
+                class="invalid-feedback"
+                style="color: red"
+              >
+                ce champ est required
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="firstName">Photo</label>
+            <input
+              type="file"
+             (change)="onChange($event)"
+              class="form-control"
+              formControlName="file"
+            />
+          </div>
+           <div class="col-md-6 mb-3">
+          <label for="email">Catégorie</label>
+          <select
+
+            class="form-control"
+          formControlName="categorie"
+            [ngClass]="{ 'is-invalid': f['categorie'].errors }"
+          >
+          <div *ngIf="f['categorie'].errors && f['categorie'].touched">
+            <small class="text-muted">Please enter a valid email</small>
+          </div>
+
+<option *ngFor="let ca of listCategorie" value="{{ca._id}}">{{ca.title}}</option>
+
+          </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="email">Quantité</label>
+          <input
+            type="number"
+            class="form-control"
+            id="email"
+            formControlName="qty"
+            [ngClass]="{ 'is-invalid': f['qty'].errors }"
+          />
+          <div *ngIf="f['qty'].errors && f['qty'].touched">
+            <small class="text-muted">Please enter a valid email</small>
+          </div>
+        </div>
+          <div class="col-md-6 mb-3">
+          <label for="email">Ram</label>
+          <input
+            type="text"
+            class="form-control"
+            id="ram"
+            formControlName="ram"
+            [ngClass]="{ 'is-invalid': f['ram'].errors }"
+          />
+          <div *ngIf="f['ram'].errors && f['ram'].touched">
+            <small class="text-muted">Please enter a valid email</small>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="email">Processeur</label>
+          <input
+            type="text"
+            class="form-control"
+            id="processor"
+            formControlName="processor"
+            [ngClass]="{ 'is-invalid': f['processor'].errors }"
+          />
+          <div *ngIf="f['processor'].errors && f['processor'].touched">
+            <small class="text-muted">Please enter a valid email</small>
+          </div>
+        </div>
+         <div class="col-md-6 mb-3">
+          <label for="email">Type de l'écran</label>
+          <input
+            type="text"
+            class="form-control"
+            id="screenType"
+            formControlName="screenType"
+            [ngClass]="{ 'is-invalid': f['screenType'].errors }"
+          />
+          <div *ngIf="f['screenType'].errors && f['screenType'].touched">
+            <small class="text-muted">Please enter a valid email</small>
+          </div>
+        </div>
+          <div class="col-md-6 mb-3">
+          <label for="email">Mémoire</label>
+          <input
+            type="text"
+            class="form-control"
+            id="memort"
+            formControlName="memory"
+            [ngClass]="{ 'is-invalid': f['memory'].errors }"
+          />
+          <div *ngIf="f['memory'].errors && f['memory'].touched">
+            <small class="text-muted">Please enter a valid email</small>
+          </div>
+        </div>
+    <button
+          class="btn btn-primary"
+          (click)="clickAddProduct();"
+          [disabled]="!addProduct.valid" type="submit">
+         Ajouter le produit
+        </button>
+      </form>

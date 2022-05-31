@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ca of list">
+            <td>{{ca.title}}</td>
+                <td>
+              <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+            <button type="button" (click)="removeCategorie(ca._id)" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

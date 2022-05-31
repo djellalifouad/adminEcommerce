@@ -1,0 +1,30 @@
+      <form  style="padding-left: 60px; padding-top:70px" class="needs-validation" [formGroup]="addProduct">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="title">Nom de la catégorie</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="title"
+              [ngClass]="{ 'is-invalid': f['title'].errors }"
+            />
+            <div *ngIf="f['title'].errors && f['title'].touched">
+              <small class="text-muted">Please enter a valid name</small>
+              <div
+                *ngIf="f['title'].errors['required']"
+                class="invalid-feedback"
+                style="color: red"
+              >
+                ce champ est required
+              </div>
+            </div>
+          </div>
+        </div>
+    <button
+          class="btn btn-primary"
+          (click)="clickAddProduct();"
+          [disabled]="!addProduct.valid" type="submit">
+         Ajouter la catégorie
+        </button>
+      </form>
+
