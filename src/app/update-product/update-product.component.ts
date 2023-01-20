@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CategoriesService } from '../categories.service';
 import { ProductsService } from '../products.service';
-
 @Component({
   selector: 'app-update-product',
   templateUrl: './update-product.component.html',

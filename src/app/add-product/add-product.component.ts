@@ -15,6 +15,7 @@ export class AddProductComponent implements OnInit {
     this.file = event.target.files[0];
     console.log(this.file);
   }
+
   constructor(
     private fb: FormBuilder,
     private apiCategorie: CategoriesService,
@@ -41,7 +42,6 @@ export class AddProductComponent implements OnInit {
       processor: ['', [Validators.required, Validators.required]],
       ram: ['', [Validators.required]],
       price: ['', [Validators.required]],
-
     });
   }
   get f() {
@@ -51,7 +51,7 @@ export class AddProductComponent implements OnInit {
     const formData = new FormData();
     formData.append('image', this.file, this.file.name);
     formData.append('nom', this.addProduct.value.nom);
-        formData.append('price', this.addProduct.value.price);
+    formData.append('price', this.addProduct.value.price);
     formData.append('desc', this.addProduct.value.desc);
     formData.append('categorie', this.addProduct.value.categorie);
     formData.append('qty', this.addProduct.value.qty);
